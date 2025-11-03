@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikul’s 
+ Art Gallery</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Poppins",sans-serif;
+    }
+
+    /* NEON Animated Background */
+    body{
+      background: linear-gradient(135deg, #0f002b, #12003a, #001a3d);
+      animation: bgMove 8s infinite alternate ease-in-out;
+      background-size: 300% 300%;
+      color:#fff;
+      min-height:100vh;
+    }
+
+    @keyframes bgMove{
+      0% {background-position: 0 50%;}
+      100% {background-position: 100% 50%;}
+    }
+
+    header{
+      text-align:center;
+      padding:2.5rem 1rem;
+    }
+
+    header h1{
+      font-size:3rem;
+      font-weight:700;
+      background: linear-gradient(90deg, #ff00e0, #00eaff, #0aff00);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow{
+      from {text-shadow:0 0 10px #ff00e0;}
+      to {text-shadow:0 0 25px #00eaff;}
+    }
+
+    .gallery{
+      width:90%;
+      max-width:1200px;
+      margin:2rem auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      cursor:pointer;
+      border:3px solid transparent;
+      transition:.3s;
+      background: linear-gradient(#000,#000) padding-box,
+                  linear-gradient(45deg,#ff00e0,#00eaff,#0aff00) border-box;
+    }
+
+    .card:hover{
+      transform:scale(1.07);
+      box-shadow:0 0 25px #00eaff;
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:10px;
+    }
+
+    .caption{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:0.8rem;
+      text-align:center;
+      background:rgba(0,0,0,0.6);
+      font-size:1rem;
+      opacity:0;
+      transition:.4s;
+    }
+
+    .card:hover .caption{
+      opacity:1;
+    }
+
+    footer{
+      margin-top:3rem;
+      text-align:center;
+      padding:1.5rem;
+      font-size:1rem;
+      color:#ccccff;
+    }
+
+    footer a{
+      color:#00eaff;
+      text-decoration:none;
+      font-weight:600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>⚡  Art Gallery by Nikul  🎨</h1>
+</header>
+
+<section class="gallery">
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents\Son Goku.jpg"><div class="caption">Drawing 1</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents\Muzan Kibutsuji.jpg"><div class="caption">Drawing 2</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents\Gyutaro.jpg"><div class="caption">Drawing 3</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents\Obanai Iguro.jpg"><div class="caption">Drawing 4</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents\Gyomei Himejima.jpg"><div class="caption">Drawing 5</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents/SpiderMan.jpg"><div class="caption">Drawing 6</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents/Monkey D. Luffy.jpg"><div class="caption">Drawing 7</div></div>
+  <div class="card"><img src="C:\Users\Amit\OneDrive\Documents/Giyu Tomioka.jpg"><div class="caption">Drawing 8</div></div>
+  <div class="card"><img src="D:\Downloads\XYZ.jpg"><div class="caption">Drawing 9</div></div>
+  <div class="card"><img src="D:\Downloads\XYZ.jpg""><div class="caption">Drawing 10</div></div>
+</section>
+
+<footer>
+  © 2025 Nikul’s  Art Gallery | Check My Other Website If You Want 
+  <a href="https://codenikul.github.io/First/ABC.html">Maths formula Sheet</a>
+</footer>
+
+</body>
+</html>
