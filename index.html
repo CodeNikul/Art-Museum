@@ -1,144 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikul’s Art Gallery | Winter 2026</title>
-<style>
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Arial,sans-serif;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikul’s 
+ Art Gallery</title>
 
-/* Background */
-body{
-  min-height:100vh;
-  background:linear-gradient(180deg,#0b1d3a,#050f2b);
-  color:#fff;
-  overflow-x:hidden;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:"Poppins",sans-serif;
+    }
 
-/* Snow layer */
-.snow{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(1px 1px, #fff 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px, #fff 50%, transparent 51%),
-    radial-gradient(0.8px 0.8px, #fff 50%, transparent 51%);
-  background-repeat: repeat;
-  background-size: 200% 200%;
-  animation:snowAnim 20s linear infinite;
-  opacity:0.5;
-}
-@keyframes snowAnim{
-  0%{background-position:0 0, 50% 0, 100% 0;}
-  100%{background-position:0 100%, 50% 100%, 100% 100%;}
-}
+    /* NEON Animated Background */
+    body{
+      background: linear-gradient(135deg, #0f002b, #12003a, #001a3d);
+      animation: bgMove 8s infinite alternate ease-in-out;
+      background-size: 300% 300%;
+      color:#fff;
+      min-height:100vh;
+    }
 
-/* Header */
-header{
-  text-align:center;
-  padding:4rem 1rem 2rem;
-}
-header h1{
-  font-size:3rem;
-  background:linear-gradient(90deg,#ffffff,#9fdcff,#ffffff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 0 25px rgba(160,210,255,.8);
-}
-header p{
-  margin-top:1rem;
-  font-size:1.1rem;
-  color:#b7ddff;
-}
+    @keyframes bgMove{
+      0% {background-position: 0 50%;}
+      100% {background-position: 100% 50%;}
+    }
 
-/* Countdown */
-#countdown{
-  margin-top:.5rem;
-  font-size:1.2rem;
-  letter-spacing:1px;
-  color:#9fdcff;
-}
+    header{
+      text-align:center;
+      padding:2.5rem 1rem;
+    }
 
-/* Gallery new layout */
-.gallery{
-  width:90%;
-  max-width:1400px;
-  margin:3rem auto 5rem;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:2rem;
-}
+    header h1{
+      font-size:3rem;
+      font-weight:700;
+      background: linear-gradient(90deg, #ff00e0, #00eaff, #0aff00);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation: glow 1.5s infinite alternate;
+    }
 
-/* Card style */
-.card{
-  position:relative;
-  border-radius:20px;
-  overflow:hidden;
-  background:rgba(0,0,0,0.1);
-  backdrop-filter:blur(12px);
-  transition:0.5s;
-  cursor:pointer;
-}
-.card:hover{
-  transform:translateY(-12px) scale(1.05);
-  box-shadow:0 20px 40px rgba(150,210,255,0.4);
-}
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.5s;
-}
-.card:hover img{
-  transform:scale(1.08);
-}
+    @keyframes glow{
+      from {text-shadow:0 0 10px #ff00e0;}
+      to {text-shadow:0 0 25px #00eaff;}
+    }
 
-/* Caption */
-.caption{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:1rem;
-  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-  text-align:center;
-  font-size:1.05rem;
-  opacity:0;
-  transition:0.3s;
-}
-.card:hover .caption{opacity:1;}
+    .gallery{
+      width:90%;
+      max-width:1200px;
+      margin:2rem auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
 
-/* Footer */
-footer{
-  text-align:center;
-  padding:3rem 1rem;
-  color:#b7ddff;
-}
-footer a{
-  color:#9fdcff;
-  text-decoration:none;
-  font-weight:600;
-}
+    .card{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      cursor:pointer;
+      border:3px solid transparent;
+      transition:.3s;
+      background: linear-gradient(#000,#000) padding-box,
+                  linear-gradient(45deg,#ff00e0,#00eaff,#0aff00) border-box;
+    }
 
-/* Responsive */
-@media(max-width:600px){
-  header h1{font-size:2.2rem;}
-  #countdown{font-size:1rem;}
-}
-</style>
+    .card:hover{
+      transform:scale(1.07);
+      box-shadow:0 0 25px #00eaff;
+    }
+
+    .card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:10px;
+    }
+
+    .caption{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:0.8rem;
+      text-align:center;
+      background:rgba(0,0,0,0.6);
+      font-size:1rem;
+      opacity:0;
+      transition:.4s;
+    }
+
+    .card:hover .caption{
+      opacity:1;
+    }
+
+    footer{
+      margin-top:3rem;
+      text-align:center;
+      padding:1.5rem;
+      font-size:1rem;
+      color:#ccccff;
+    }
+
+    footer a{
+      color:#00eaff;
+      text-decoration:none;
+      font-weight:600;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="snow"></div>
-
 <header>
-  <h1>❄️ Winter Art Gallery 2026 ❄️</h1>
-  <p>New Year • Anime • Original Drawings</p>
-  <div id="countdown"></div>
+  <h1>⚡  Art Gallery by Nikul  🎨</h1>
 </header>
 
-<!-- Image Section (unchanged) -->
 <section class="gallery">
   <div class="card"><img src="images/Son Goku.jpg"><div class="caption">Son Goku</div></div>
   <div class="card"><img src="images/Muzan Kibutsuji.jpg"><div class="caption">Muzan Kibutsuji</div></div>
@@ -150,27 +129,13 @@ footer a{
   <div class="card"><img src="images/Giyu Tomioka.jpg"><div class="caption">Giyu Tomioka</div></div>
 </section>
 
+
 <footer>
-© 2026 Nikul’s Art Gallery  
-<br>
-<a href="https://codenikul.github.io/First/ABC.html">Maths Formula Sheet</a>
+  © 2025 Nikul’s  Art Gallery Other Drawings Comming Soon| Check My Other Website If You Want 
+  <a href="https://codenikul.github.io/First/ABC.html">Maths formula Sheet</a>
 </footer>
 
-<script>
-// Countdown Timer
-const target = new Date("Jan 1, 2027 00:00:00").getTime();
-setInterval(()=>{
-  const now = new Date().getTime();
-  const d = target - now;
-  const cd = document.getElementById("countdown");
-  if(d < 0){ cd.innerHTML="🎆 HAPPY NEW YEAR 🎆"; return;}
-  const days = Math.floor(d/(1000*60*60*24));
-  const hrs = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-  const min = Math.floor((d%(1000*60*60))/(1000*60));
-  const sec = Math.floor((d%(1000*60))/1000);
-  cd.innerHTML=`⏳ ${days}d ${hrs}h ${min}m ${sec}s`;
-},1000);
-</script>
-
 </body>
+
 </html>
+
