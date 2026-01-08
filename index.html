@@ -1,143 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikul’s 
- Art Gallery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikul’s Art Gallery – Winter Edition</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:"Poppins",sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,Arial,sans-serif;
+}
 
-    /* NEON Animated Background */
-    body{
-      background: linear-gradient(135deg, #0f002b, #12003a, #001a3d);
-      animation: bgMove 8s infinite alternate ease-in-out;
-      background-size: 300% 300%;
-      color:#fff;
-      min-height:100vh;
-    }
+/* ❄️ Winter Background */
+body{
+  background: linear-gradient(180deg,#020024,#0b1d3a,#1a3d6f);
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-    @keyframes bgMove{
-      0% {background-position: 0 50%;}
-      100% {background-position: 100% 50%;}
-    }
+/* ❄️ Snowfall */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(2px 2px at 20% 30%, white 50%, transparent 51%),
+    radial-gradient(2px 2px at 60% 80%, white 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 80% 40%, white 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 70%, white 50%, transparent 51%);
+  animation:snow 12s linear infinite;
+  opacity:0.6;
+  pointer-events:none;
+}
 
-    header{
-      text-align:center;
-      padding:2.5rem 1rem;
-    }
+@keyframes snow{
+  from{transform:translateY(-100px);}
+  to{transform:translateY(100vh);}
+}
 
-    header h1{
-      font-size:3rem;
-      font-weight:700;
-      background: linear-gradient(90deg, #ff00e0, #00eaff, #0aff00);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      animation: glow 1.5s infinite alternate;
-    }
+/* 🎆 Header */
+header{
+  text-align:center;
+  padding:3rem 1rem;
+}
 
-    @keyframes glow{
-      from {text-shadow:0 0 10px #ff00e0;}
-      to {text-shadow:0 0 25px #00eaff;}
-    }
+header h1{
+  font-size:3rem;
+  background:linear-gradient(90deg,#fff,#aee7ff,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 15px rgba(255,255,255,0.6);
+}
 
-    .gallery{
-      width:90%;
-      max-width:1200px;
-      margin:2rem auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
+/* ❄️ Gallery */
+.gallery{
+  width:90%;
+  max-width:1200px;
+  margin:2rem auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
 
-    .card{
-      position:relative;
-      border-radius:14px;
-      overflow:hidden;
-      cursor:pointer;
-      border:3px solid transparent;
-      transition:.3s;
-      background: linear-gradient(#000,#000) padding-box,
-                  linear-gradient(45deg,#ff00e0,#00eaff,#0aff00) border-box;
-    }
+/* 🧊 Glass Cards */
+.card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  transition:0.4s;
+}
 
-    .card:hover{
-      transform:scale(1.07);
-      box-shadow:0 0 25px #00eaff;
-    }
+.card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 0 30px rgba(180,220,255,0.6);
+}
 
-    .card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      border-radius:10px;
-    }
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 
-    .caption{
-      position:absolute;
-      bottom:0;
-      width:100%;
-      padding:0.8rem;
-      text-align:center;
-      background:rgba(0,0,0,0.6);
-      font-size:1rem;
-      opacity:0;
-      transition:.4s;
-    }
+/* ❄️ Caption */
+.caption{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:0.9rem;
+  text-align:center;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(6px);
+  opacity:0;
+  transition:0.4s;
+}
 
-    .card:hover .caption{
-      opacity:1;
-    }
+.card:hover .caption{
+  opacity:1;
+}
 
-    footer{
-      margin-top:3rem;
-      text-align:center;
-      padding:1.5rem;
-      font-size:1rem;
-      color:#ccccff;
-    }
+/* 📱 Mobile fix */
+@media(max-width:600px){
+  .caption{opacity:1;}
+}
 
-    footer a{
-      color:#00eaff;
-      text-decoration:none;
-      font-weight:600;
-    }
-  </style>
+/* 🎄 Footer */
+footer{
+  margin-top:3rem;
+  text-align:center;
+  padding:1.5rem;
+  color:#d6ecff;
+}
+
+footer a{
+  color:#9ee6ff;
+  text-decoration:none;
+  font-weight:600;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>⚡  Art Gallery by Nikul  🎨</h1>
+  <h1>❄️ Happy New Year 2026 ❄️<br>Art Gallery by Nikul 🎨</h1>
 </header>
 
 <section class="gallery">
-  <div class="card"><img src="images/Son Goku.jpg"><div class="caption">Son Goku</div></div>
-  <div class="card"><img src="images/Muzan Kibutsuji.jpg"><div class="caption">Muzan Kibutsuji</div></div>
-  <div class="card"><img src="images/Gyutaro.jpg"><div class="caption">Gyutaro</div></div>
-  <div class="card"><img src="images/Obanai Iguro.jpg"><div class="caption">Obanai Iguro</div></div>
-  <div class="card"><img src="images/Gyomei Himejima.jpg"><div class="caption">Gyomei Himejima</div></div>
-  <div class="card"><img src="images/SpiderMan.jpg"><div class="caption">Spider-Man</div></div>
-  <div class="card"><img src="images/Monkey D. Luffy.jpg"><div class="caption">Monkey D. Luffy</div></div>
-  <div class="card"><img src="images/Giyu Tomioka.jpg"><div class="caption">Giyu Tomioka</div></div>
+  <div class="card"><img src="images/son-goku.jpg" alt="Son Goku"><div class="caption">Son Goku</div></div>
+  <div class="card"><img src="images/muzan-kibutsuji.jpg" alt="Muzan Kibutsuji"><div class="caption">Muzan Kibutsuji</div></div>
+  <div class="card"><img src="images/gyutaro.jpg" alt="Gyutaro"><div class="caption">Gyutaro</div></div>
+  <div class="card"><img src="images/obanai-iguro.jpg" alt="Obanai Iguro"><div class="caption">Obanai Iguro</div></div>
+  <div class="card"><img src="images/gyomei-himejima.jpg" alt="Gyomei Himejima"><div class="caption">Gyomei Himejima</div></div>
+  <div class="card"><img src="images/spiderman.jpg" alt="Spider-Man"><div class="caption">Spider-Man</div></div>
+  <div class="card"><img src="images/monkey-d-luffy.jpg" alt="Monkey D. Luffy"><div class="caption">Monkey D. Luffy</div></div>
+  <div class="card"><img src="images/giyu-tomioka.jpg" alt="Giyu Tomioka"><div class="caption">Giyu Tomioka</div></div>
 </section>
 
-
 <footer>
-  © 2025 Nikul’s  Art Gallery Other Drawings Comming Soon| Check My Other Website If You Want 
-  <a href="https://codenikul.github.io/First/ABC.html">Maths formula Sheet</a>
+  © 2026 Nikul’s Art Gallery | Other drawings coming soon  
+  <br>
+  <a href="https://codenikul.github.io/First/ABC.html">Maths Formula Sheet</a>
 </footer>
 
 </body>
-
 </html>
-
-
-
